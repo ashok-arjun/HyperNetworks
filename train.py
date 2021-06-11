@@ -2,6 +2,8 @@ import torch
 import torchvision
 import torchvision.transforms as transforms
 
+import os
+
 from torch.autograd import Variable
 import torch.nn as nn
 
@@ -10,6 +12,8 @@ import argparse
 import torch.optim as optim
 
 from primary_net import PrimaryNetwork
+
+os.environ["CUDA_VISIBLE_DEVICES"] = "3"
 
 ########### Data Loader ###############
 

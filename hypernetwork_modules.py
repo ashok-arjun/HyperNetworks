@@ -12,11 +12,16 @@ class HyperNetwork(nn.Module):
         self.out_size = out_size
         self.in_size = in_size
 
+        print("Hypernetwork weight sizes")
+
         self.w1 = Parameter(torch.fmod(torch.randn((self.z_dim, self.out_size*self.f_size*self.f_size)).cuda(),2))
         self.b1 = Parameter(torch.fmod(torch.randn((self.out_size*self.f_size*self.f_size)).cuda(),2))
 
         self.w2 = Parameter(torch.fmod(torch.randn((self.z_dim, self.in_size*self.z_dim)).cuda(),2))
         self.b2 = Parameter(torch.fmod(torch.randn((self.in_size*self.z_dim)).cuda(),2))
+
+        print(self.w1.shape, self.w2.shape)
+        print(self.b1.shape, self.b2.shape)
 
     def forward(self, z):
 
